@@ -139,7 +139,7 @@ export default function Home() {
             <ContactMethod
               icon={<MapPin size={28} />}
               label="Service Area"
-              value="Port Harcourt, Rivers State, Nigeria"
+              value="Onitsha, Anambra State, Nigeria"
               href="#"
             />
           </div>
@@ -154,7 +154,7 @@ export default function Home() {
       {/* Footer */}
       <footer className="bg-black border-t border-gray-800 py-8 px-4 sm:px-8">
         <div className="max-w-6xl mx-auto text-center text-gray-500 text-sm">
-          <p>&copy; 2024 Smart Art Link Metals. All rights reserved. | Port Harcourt, Nigeria</p>
+          <p>&copy; 2024 Smart Art Link Metals. All rights reserved. | Onitsha, Nigeria</p>
         </div>
       </footer>
     </main>
