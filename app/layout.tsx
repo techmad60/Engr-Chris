@@ -1,10 +1,12 @@
 import type { Metadata } from 'next'
-import { Geist, Geist_Mono } from 'next/font/google'
+import { Bebas_Neue, Geist, Geist_Mono, Inter } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
 const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
+const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
+const bebasNeue = Bebas_Neue({ subsets: ['latin'], weight: '400', variable: '--font-bebas' });
 
 export const metadata: Metadata = {
   title: 'Smart Art Link Metals | Wrought Iron Fabrication Onitsha',
@@ -36,7 +38,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="font-sans antialiased">
+      <body className={`font-sans antialiased ${inter.variable} ${bebasNeue.variable}`}>
         {children}
         <Analytics />
       </body>

@@ -1,30 +1,69 @@
 'use client';
 
 import Image from 'next/image';
-import { Heart, Shield, Star, Phone, MessageCircle, MapPin } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
+import { Heart, Shield, Star, Phone, MapPin } from 'lucide-react';
+
+const slideDurationSeconds = 6;
+
+const heroImages = [
+  '/images/hero-gate.jpg',
+  '/images/wrought-iron-1.png',
+  '/images/wrought-iron-2.png',
+  '/images/wrought-iron-3.png',
+  '/images/wrought-iron-4.png',
+  '/images/wrought-iron-5.png',
+];
 
 export default function Home() {
+  const heroRef = useRef<HTMLElement | null>(null);
+  const [showWhatsApp, setShowWhatsApp] = useState(false);
+
+  useEffect(() => {
+    const heroEl = heroRef.current;
+    if (!heroEl) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setShowWhatsApp(!entry.isIntersecting);
+      },
+      { root: null, threshold: 0.1 }
+    );
+
+    observer.observe(heroEl);
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <main className="bg-black text-white">
       {/* Hero Section */}
       <section 
+        ref={heroRef}
         className="min-h-screen flex flex-col items-center justify-center px-4 sm:px-8 py-16 sm:py-24 relative overflow-hidden"
-        style={{
-          backgroundImage: 'url(/images/hero-gate.jpg)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundAttachment: 'fixed'
-        }}
       >
+        {/* Background slideshow */}
+        <div className="absolute inset-0 hero-slideshow">
+          {heroImages.map((src, index) => (
+            <div
+              key={src}
+              className="hero-slide"
+              style={{
+                backgroundImage: `url(${src})`,
+                animationDuration: `${heroImages.length * slideDurationSeconds}s`,
+                animationDelay: `${index * slideDurationSeconds}s`,
+              }}
+            />
+          ))}
+        </div>
         {/* Dark overlay */}
-        <div className="absolute inset-0 bg-black/60"></div>
+        <div className="absolute inset-0 bg-black/75 z-10"></div>
         
         {/* Content */}
-        <div className="relative z-10 max-w-2xl text-center space-y-8">
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-balance">
+        <div className="relative z-20 max-w-2xl text-center space-y-8">
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-wide text-balance">
             Smart Art Link Metals
           </h1>
-          <p className="text-lg sm:text-xl text-gray-300 text-balance">
+          <p className="text-lg sm:text-xl text-white text-balance">
             Premium Wrought Iron Craftsmanship for Your Home
           </p>
           <a
@@ -33,8 +72,7 @@ export default function Home() {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-[#d4a574] hover:bg-[#c49564] text-black font-semibold py-4 px-8 rounded-lg transition-colors duration-300"
           >
-            <MessageCircle size={20} />
-            Chat on WhatsApp
+            Contact Us
           </a>
         </div>
       </section>
@@ -75,7 +113,7 @@ export default function Home() {
       </section>
 
       {/* Gallery Section */}
-      <section className="py-16 sm:py-24 px-4 sm:px-8 bg-gradient-to-b from-black to-gray-900">
+      <section className="py-16 sm:py-24 px-4 sm:px-8 bg-[#15110d]">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-3xl sm:text-5xl font-bold text-center mb-16 sm:mb-20">
             Our <span className="text-[#d4a574]">Gallery</span>
@@ -118,7 +156,7 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section className="py-16 sm:py-24 px-4 sm:px-8 bg-gradient-to-b from-black to-gray-900">
+      <section className="py-16 sm:py-24 px-4 sm:px-8 bg-linear-to from-black to-gray-900">
         <div className="max-w-2xl mx-auto text-center space-y-12">
           <h2 className="text-3xl sm:text-5xl font-bold">
             Get in <span className="text-[#d4a574]">Touch</span>
@@ -129,12 +167,6 @@ export default function Home() {
               label="Phone"
               value="+234 818 514 2482"
               href="tel:+2348185142482"
-            />
-            <ContactMethod
-              icon={<MessageCircle size={28} />}
-              label="WhatsApp"
-              value="Click to chat now"
-              href="https://wa.me/2348185142482?text=Hello%20Smart%20Art%20Link%20Metals%2C%20I%20am%20interested%20in%20your%20services"
             />
             <ContactMethod
               icon={<MapPin size={28} />}
@@ -157,6 +189,25 @@ export default function Home() {
           <p>&copy; 2024 Smart Art Link Metals. All rights reserved. | Onitsha, Nigeria</p>
         </div>
       </footer>
+
+      {/* Sticky WhatsApp */}
+      {showWhatsApp && (
+        <a
+          href="https://wa.me/2348185142482?text=Hello%20Smart%20Art%20Link%20Metals%2C%20I%20am%20interested%20in%20your%20services"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="fixed right-4 top-1/2 -translate-y-1/2 z-50 hover:scale-105 transition-transform"
+          aria-label="Chat on WhatsApp"
+        >
+          <Image
+            src="/images/whatsapp-logo.png"
+            alt=""
+            width={56}
+            height={56}
+            className="h-14 w-14"
+          />
+        </a>
+      )}
     </main>
   );
 }
@@ -199,7 +250,7 @@ interface GalleryImageProps {
 function GalleryImage({ src, alt }: GalleryImageProps) {
   return (
     <div className="relative aspect-square bg-gray-800 overflow-hidden group">
-      <div className="w-full h-full bg-gradient-to-br from-gray-700 to-gray-900 flex items-center justify-center">
+      <div className="w-full h-full bg-linear-to from-gray-700 to-gray-900 flex items-center justify-center">
         <div className="text-center text-gray-500 px-4">
           <p className="text-sm font-medium">Gallery Image</p>
           <p className="text-xs mt-2">{alt}</p>
