@@ -1,0 +1,234 @@
+'use client';
+
+import Image from 'next/image';
+import { Heart, Shield, Star, Phone, MessageCircle, MapPin } from 'lucide-react';
+
+export default function Home() {
+  return (
+    <main className="bg-black text-white">
+      {/* Hero Section */}
+      <section 
+        className="min-h-screen flex flex-col items-center justify-center px-4 sm:px-8 py-16 sm:py-24 relative overflow-hidden"
+        style={{
+          backgroundImage: 'url(/images/hero-gate.jpg)',
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundAttachment: 'fixed'
+        }}
+      >
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-black/60"></div>
+        
+        {/* Content */}
+        <div className="relative z-10 max-w-2xl text-center space-y-8">
+          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-balance">
+            Smart Art Link Metals
+          </h1>
+          <p className="text-lg sm:text-xl text-gray-300 text-balance">
+            Premium Wrought Iron Craftsmanship for Your Home
+          </p>
+          <a
+            href="https://wa.me/2348185142482?text=Hello%20Smart%20Art%20Link%20Metals%2C%20I%20am%20interested%20in%20your%20services"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 bg-[#d4a574] hover:bg-[#c49564] text-black font-semibold py-4 px-8 rounded-lg transition-colors duration-300"
+          >
+            <MessageCircle size={20} />
+            Chat on WhatsApp
+          </a>
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section className="py-16 sm:py-24 px-4 sm:px-8 bg-black">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl sm:text-5xl font-bold text-center mb-16 sm:mb-20">
+            Our <span className="text-[#d4a574]">Services</span>
+          </h2>
+          <div className="grid md:grid-cols-2 gap-8 sm:gap-12">
+            <ServiceCard
+              title="Custom Gates"
+              description="Bespoke gate designs tailored to your property's unique style and security needs."
+            />
+            <ServiceCard
+              title="Security Fences"
+              description="Durable fencing solutions that combine beauty with maximum security and protection."
+            />
+            <ServiceCard
+              title="Burglary Proof"
+              description="Professional burglary proof installations designed to protect your home and valuables."
+            />
+            <ServiceCard
+              title="Staircases"
+              description="Elegant wrought iron staircases that add architectural interest and value to your space."
+            />
+            <ServiceCard
+              title="Decorative Ironwork"
+              description="Artistic metalwork pieces that enhance your home's aesthetic appeal and character."
+            />
+            <ServiceCard
+              title="Custom Fabrication"
+              description="Any custom wrought iron project - we bring your vision to life with precision and artistry."
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Gallery Section */}
+      <section className="py-16 sm:py-24 px-4 sm:px-8 bg-gradient-to-b from-black to-gray-900">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl sm:text-5xl font-bold text-center mb-16 sm:mb-20">
+            Our <span className="text-[#d4a574]">Gallery</span>
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            <GalleryImage src="wrought-iron-gate-1" alt="Custom wrought iron gate" />
+            <GalleryImage src="wrought-iron-fence-1" alt="Security fence installation" />
+            <GalleryImage src="burglary-proof-1" alt="Burglary proof installation" />
+            <GalleryImage src="iron-staircase-1" alt="Decorative iron staircase" />
+            <GalleryImage src="decorative-ironwork-1" alt="Decorative iron railing" />
+            <GalleryImage src="custom-gate-design-1" alt="Custom gate design" />
+          </div>
+        </div>
+      </section>
+
+      {/* Why Choose Us Section */}
+      <section className="py-16 sm:py-24 px-4 sm:px-8 bg-black">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl sm:text-5xl font-bold text-center mb-16 sm:mb-20">
+            Why <span className="text-[#d4a574]">Choose</span> Us
+          </h2>
+          <div className="grid md:grid-cols-3 gap-8 sm:gap-12">
+            <TrustCard
+              icon={<Shield size={40} className="text-[#d4a574]" />}
+              title="Quality Craftsmanship"
+              description="Expert metalworking with attention to every detail. We build to last for generations."
+            />
+            <TrustCard
+              icon={<Heart size={40} className="text-[#d4a574]" />}
+              title="Custom Design"
+              description="Every project is uniquely designed to match your vision and complement your property."
+            />
+            <TrustCard
+              icon={<Star size={40} className="text-[#d4a574]" />}
+              title="Years of Experience"
+              description="Trusted by Port Harcourt residents for premium wrought iron solutions."
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section className="py-16 sm:py-24 px-4 sm:px-8 bg-gradient-to-b from-black to-gray-900">
+        <div className="max-w-2xl mx-auto text-center space-y-12">
+          <h2 className="text-3xl sm:text-5xl font-bold">
+            Get in <span className="text-[#d4a574]">Touch</span>
+          </h2>
+          <div className="space-y-6 sm:space-y-8">
+            <ContactMethod
+              icon={<Phone size={28} />}
+              label="Phone"
+              value="+234 818 514 2482"
+              href="tel:+2348185142482"
+            />
+            <ContactMethod
+              icon={<MessageCircle size={28} />}
+              label="WhatsApp"
+              value="Click to chat now"
+              href="https://wa.me/2348185142482?text=Hello%20Smart%20Art%20Link%20Metals%2C%20I%20am%20interested%20in%20your%20services"
+            />
+            <ContactMethod
+              icon={<MapPin size={28} />}
+              label="Service Area"
+              value="Port Harcourt, Rivers State, Nigeria"
+              href="#"
+            />
+          </div>
+          <div className="pt-8 border-t border-gray-700">
+            <p className="text-gray-400">
+              Available for consultations and custom quotes. Contact us today to discuss your wrought iron needs.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-black border-t border-gray-800 py-8 px-4 sm:px-8">
+        <div className="max-w-6xl mx-auto text-center text-gray-500 text-sm">
+          <p>&copy; 2024 Smart Art Link Metals. All rights reserved. | Port Harcourt, Nigeria</p>
+        </div>
+      </footer>
+    </main>
+  );
+}
+
+interface ServiceCardProps {
+  title: string;
+  description: string;
+}
+
+function ServiceCard({ title, description }: ServiceCardProps) {
+  return (
+    <div className="p-6 sm:p-8 bg-gray-900 border border-gray-800 hover:border-[#d4a574] transition-colors duration-300">
+      <h3 className="text-lg sm:text-xl font-bold mb-3 text-[#d4a574]">{title}</h3>
+      <p className="text-gray-400 leading-relaxed">{description}</p>
+    </div>
+  );
+}
+
+interface TrustCardProps {
+  icon: React.ReactNode;
+  title: string;
+  description: string;
+}
+
+function TrustCard({ icon, title, description }: TrustCardProps) {
+  return (
+    <div className="space-y-4 text-center">
+      <div className="flex justify-center">{icon}</div>
+      <h3 className="text-lg sm:text-xl font-bold">{title}</h3>
+      <p className="text-gray-400 leading-relaxed">{description}</p>
+    </div>
+  );
+}
+
+interface GalleryImageProps {
+  src: string;
+  alt: string;
+}
+
+function GalleryImage({ src, alt }: GalleryImageProps) {
+  return (
+    <div className="relative aspect-square bg-gray-800 overflow-hidden group">
+      <div className="w-full h-full bg-gradient-to-br from-gray-700 to-gray-900 flex items-center justify-center">
+        <div className="text-center text-gray-500 px-4">
+          <p className="text-sm font-medium">Gallery Image</p>
+          <p className="text-xs mt-2">{alt}</p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+interface ContactMethodProps {
+  icon: React.ReactNode;
+  label: string;
+  value: string;
+  href: string;
+}
+
+function ContactMethod({ icon, label, value, href }: ContactMethodProps) {
+  return (
+    <a
+      href={href}
+      target={href.startsWith('http') ? '_blank' : undefined}
+      rel={href.startsWith('http') ? 'noopener noreferrer' : undefined}
+      className="flex flex-col sm:flex-row items-center justify-center gap-4 p-6 sm:p-8 bg-gray-900 border border-gray-800 hover:border-[#d4a574] hover:bg-gray-800 transition-all duration-300"
+    >
+      <div className="text-[#d4a574]">{icon}</div>
+      <div className="text-center sm:text-left">
+        <p className="text-sm text-gray-500">{label}</p>
+        <p className="text-lg sm:text-xl font-semibold">{value}</p>
+      </div>
+    </a>
+  );
+}
