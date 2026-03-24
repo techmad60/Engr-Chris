@@ -7,8 +7,8 @@ const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'Smart Art Link Metals | Wrought Iron Fabrication Port Harcourt',
-  description: 'Expert wrought iron fabrication services in Port Harcourt. Custom gates, fences, burglary proof installations, staircases, and decorative ironwork.',
+  title: 'Smart Art Link Metals | Wrought Iron Fabrication Onitsha',
+  description: 'Expert wrought iron fabrication services in Onitsha. Custom gates, fences, burglary proof installations, staircases, and decorative ironwork.',
   generator: 'v0.app',
   icons: {
     icon: [
