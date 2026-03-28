@@ -15,25 +15,6 @@ const heroImages = [
   '/images/wrought-iron-5.png',
 ];
 
-const galleryImages = [
-  {
-    src: '/images/wrought-iron-1.png',
-    alt: 'Custom wrought iron gate',
-  },
-  {
-    src: '/images/wrought-iron-2.png',
-    alt: 'Security fence installation',
-  },
-  {
-    src: '/images/wrought-iron-3.png',
-    alt: 'Decorative iron staircase',
-  },
-  {
-    src: '/images/wrought-iron-4.png',
-    alt: 'Artistic burglary-proof panels',
-  },
-];
-
 export default function Home() {
   const heroRef = useRef<HTMLElement | null>(null);
   const [showWhatsApp, setShowWhatsApp] = useState(false);
@@ -137,10 +118,13 @@ export default function Home() {
           <h2 className="text-3xl sm:text-5xl font-bold text-center mb-16 sm:mb-20">
             Our <span className="text-[#d4a574]">Gallery</span>
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
-            {galleryImages.map((image) => (
-              <GalleryImage key={image.src} src={image.src} alt={image.alt} />
-            ))}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            <GalleryImage src="wrought-iron-gate-1" alt="Custom wrought iron gate" />
+            <GalleryImage src="wrought-iron-fence-1" alt="Security fence installation" />
+            <GalleryImage src="burglary-proof-1" alt="Burglary proof installation" />
+            <GalleryImage src="iron-staircase-1" alt="Decorative iron staircase" />
+            {/* <GalleryImage src="decorative-ironwork-1" alt="Decorative iron railing" />
+            <GalleryImage src="custom-gate-design-1" alt="Custom gate design" /> */}
           </div>
         </div>
       </section>
@@ -265,17 +249,11 @@ interface GalleryImageProps {
 
 function GalleryImage({ src, alt }: GalleryImageProps) {
   return (
-    <div className="relative aspect-square overflow-hidden rounded-3xl border border-gray-800 bg-gray-900 group shadow-2xl">
-      <Image
-        src={src}
-        alt={alt}
-        fill
-        className="object-cover transition-transform duration-500 group-hover:scale-105"
-      />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
-        <div className="text-white p-5">
-          <p className="text-sm uppercase tracking-[0.3em] text-gray-300">Gallery</p>
-          <p className="text-lg font-bold leading-tight">{alt}</p>
+    <div className="relative aspect-square bg-gray-800 overflow-hidden group">
+      <div className="w-full h-full bg-linear-to from-gray-700 to-gray-900 flex items-center justify-center">
+        <div className="text-center text-gray-500 px-4">
+          <p className="text-sm font-medium">Gallery Image</p>
+          <p className="text-xs mt-2">{alt}</p>
         </div>
       </div>
     </div>
