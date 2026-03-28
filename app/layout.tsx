@@ -11,23 +11,14 @@ const bebasNeue = Bebas_Neue({ subsets: ['latin'], weight: '400', variable: '--f
 export const metadata: Metadata = {
   title: 'Smart Art Link Metals | Wrought Iron Fabrication Onitsha',
   description: 'Expert wrought iron fabrication services in Onitsha. Custom gates, fences, burglary proof installations, staircases, and decorative ironwork.',
-  generator: 'v0.app',
   icons: {
     icon: [
       {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
+        url: '/images/logo.png',
+        type: 'image/png',
       },
     ],
-    apple: '/apple-icon.png',
+    apple: '/images/logo.png',
   },
 }
 

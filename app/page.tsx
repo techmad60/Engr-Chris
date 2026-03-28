@@ -15,6 +15,25 @@ const heroImages = [
   '/images/wrought-iron-5.png',
 ];
 
+const galleryImages = [
+  {
+    src: '/images/wrought-iron-1.png',
+    alt: 'Custom wrought iron gate',
+  },
+  {
+    src: '/images/wrought-iron-2.png',
+    alt: 'Security fence installation',
+  },
+  {
+    src: '/images/wrought-iron-3.png',
+    alt: 'Decorative iron staircase',
+  },
+  {
+    src: '/images/wrought-iron-4.png',
+    alt: 'Artistic burglary-proof panels',
+  },
+];
+
 export default function Home() {
   const heroRef = useRef<HTMLElement | null>(null);
   const [showWhatsApp, setShowWhatsApp] = useState(false);
@@ -67,7 +86,7 @@ export default function Home() {
             Premium Wrought Iron Craftsmanship for Your Home
           </p>
           <a
-            href="https://wa.me/2348185142482?text=Hello%20Smart%20Art%20Link%20Metals%2C%20I%20am%20interested%20in%20your%20services"
+            href="https://wa.me/2348068889460?text=Hello%20Smart%20Art%20Link%20Metals%2C%20I%20am%20interested%20in%20your%20services"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-[#d4a574] hover:bg-[#c49564] text-black font-semibold py-4 px-8 rounded-lg transition-colors duration-300"
@@ -118,13 +137,10 @@ export default function Home() {
           <h2 className="text-3xl sm:text-5xl font-bold text-center mb-16 sm:mb-20">
             Our <span className="text-[#d4a574]">Gallery</span>
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            <GalleryImage src="wrought-iron-gate-1" alt="Custom wrought iron gate" />
-            <GalleryImage src="wrought-iron-fence-1" alt="Security fence installation" />
-            <GalleryImage src="burglary-proof-1" alt="Burglary proof installation" />
-            <GalleryImage src="iron-staircase-1" alt="Decorative iron staircase" />
-            <GalleryImage src="decorative-ironwork-1" alt="Decorative iron railing" />
-            <GalleryImage src="custom-gate-design-1" alt="Custom gate design" />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+            {galleryImages.map((image) => (
+              <GalleryImage key={image.src} src={image.src} alt={image.alt} />
+            ))}
           </div>
         </div>
       </section>
@@ -165,8 +181,8 @@ export default function Home() {
             <ContactMethod
               icon={<Phone size={28} />}
               label="Phone"
-              value="+234 818 514 2482"
-              href="tel:+2348185142482"
+              value="+234 806 888 9460"
+              href="tel:+2348068889460"
             />
             <ContactMethod
               icon={<MapPin size={28} />}
@@ -186,14 +202,14 @@ export default function Home() {
       {/* Footer */}
       <footer className="bg-black border-t border-gray-800 py-8 px-4 sm:px-8">
         <div className="max-w-6xl mx-auto text-center text-gray-500 text-sm">
-          <p>&copy; 2024 Smart Art Link Metals. All rights reserved. | Onitsha, Nigeria</p>
+          <p>&copy; 2026 Smart Art Link Metals. All rights reserved. | Onitsha, Nigeria</p>
         </div>
       </footer>
 
       {/* Sticky WhatsApp */}
       {showWhatsApp && (
         <a
-          href="https://wa.me/2348185142482?text=Hello%20Smart%20Art%20Link%20Metals%2C%20I%20am%20interested%20in%20your%20services"
+          href="https://wa.me/2348068889460?text=Hello%20Smart%20Art%20Link%20Metals%2C%20I%20am%20interested%20in%20your%20services"
           target="_blank"
           rel="noopener noreferrer"
           className="fixed right-4 top-1/2 -translate-y-1/2 z-50 hover:scale-105 transition-transform"
@@ -249,11 +265,17 @@ interface GalleryImageProps {
 
 function GalleryImage({ src, alt }: GalleryImageProps) {
   return (
-    <div className="relative aspect-square bg-gray-800 overflow-hidden group">
-      <div className="w-full h-full bg-linear-to from-gray-700 to-gray-900 flex items-center justify-center">
-        <div className="text-center text-gray-500 px-4">
-          <p className="text-sm font-medium">Gallery Image</p>
-          <p className="text-xs mt-2">{alt}</p>
+    <div className="relative aspect-square overflow-hidden rounded-3xl border border-gray-800 bg-gray-900 group shadow-2xl">
+      <Image
+        src={src}
+        alt={alt}
+        fill
+        className="object-cover transition-transform duration-500 group-hover:scale-105"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+        <div className="text-white p-5">
+          <p className="text-sm uppercase tracking-[0.3em] text-gray-300">Gallery</p>
+          <p className="text-lg font-bold leading-tight">{alt}</p>
         </div>
       </div>
     </div>

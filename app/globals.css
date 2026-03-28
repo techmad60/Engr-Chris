@@ -74,6 +74,8 @@
   --sidebar-ring: #d4a574;
 }
 
+*/
+
 @theme inline {
   --font-sans: var(--font-inter), 'Inter', sans-serif;
   --font-mono: 'Geist Mono', 'Geist Mono Fallback';
@@ -135,7 +137,12 @@
     font-family: var(--font-display), 'Bebas Neue', sans-serif;
     letter-spacing: 0.02em;
   }
-} */
+}
+
+.font-display {
+  font-family: var(--font-display), 'Bebas Neue', sans-serif;
+  letter-spacing: 0.02em;
+}
 
 .hero-slideshow {
   position: absolute;
