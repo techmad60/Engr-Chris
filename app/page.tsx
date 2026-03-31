@@ -8,7 +8,7 @@ const slideDurationSeconds = 6;
 
 const heroImages = [
   {
-    src: '/images/hero-gate.jpg',
+    src: '/images/hero-gate.png',
     alt: 'Grand wrought iron gate',
   },
   {
