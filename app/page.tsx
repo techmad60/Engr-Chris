@@ -7,17 +7,36 @@ import { Heart, Shield, Star, Phone, MapPin } from 'lucide-react';
 const slideDurationSeconds = 6;
 
 const heroImages = [
-  '/images/hero-gate.jpg',
-  '/images/wrought-iron-1.png',
-  '/images/wrought-iron-2.png',
-  '/images/wrought-iron-3.png',
-  '/images/wrought-iron-4.png',
-  '/images/wrought-iron-5.png',
+  {
+    src: '/images/hero-gate.jpg',
+    alt: 'Grand wrought iron gate',
+  },
+  {
+    src: '/images/wrought-iron-1.png',
+    alt: 'Detailed wrought iron scrollwork',
+  },
+  {
+    src: '/images/wrought-iron-2.png',
+    alt: 'Curving wrought iron balusters',
+  },
+  {
+    src: '/images/wrought-iron-3.png',
+    alt: 'Handcrafted wrought iron railing',
+  },
+  {
+    src: '/images/wrought-iron-4.png',
+    alt: 'Polished wrought iron entry',
+  },
+  {
+    src: '/images/wrought-iron-5.png',
+    alt: 'Artistic wrought iron accent',
+  },
 ];
 
 export default function Home() {
   const heroRef = useRef<HTMLElement | null>(null);
   const [showWhatsApp, setShowWhatsApp] = useState(false);
+  const galleryImages = heroImages.slice(0, 4);
 
   useEffect(() => {
     const heroEl = heroRef.current;
@@ -43,12 +62,12 @@ export default function Home() {
       >
         {/* Background slideshow */}
         <div className="absolute inset-0 hero-slideshow">
-          {heroImages.map((src, index) => (
+          {heroImages.map((image, index) => (
             <div
-              key={src}
+              key={image.src}
               className="hero-slide"
               style={{
-                backgroundImage: `url(${src})`,
+                backgroundImage: `url(${image.src})`,
                 animationDuration: `${heroImages.length * slideDurationSeconds}s`,
                 animationDelay: `${index * slideDurationSeconds}s`,
               }}
@@ -118,13 +137,10 @@ export default function Home() {
           <h2 className="text-3xl sm:text-5xl font-bold text-center mb-16 sm:mb-20">
             Our <span className="text-[#d4a574]">Gallery</span>
           </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-            <GalleryImage src="wrought-iron-gate-1" alt="Custom wrought iron gate" />
-            <GalleryImage src="wrought-iron-fence-1" alt="Security fence installation" />
-            <GalleryImage src="burglary-proof-1" alt="Burglary proof installation" />
-            <GalleryImage src="iron-staircase-1" alt="Decorative iron staircase" />
-            {/* <GalleryImage src="decorative-ironwork-1" alt="Decorative iron railing" />
-            <GalleryImage src="custom-gate-design-1" alt="Custom gate design" /> */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6 sm:gap-8">
+            {galleryImages.map((image) => (
+              <GalleryImage key={image.src} src={image.src} alt={image.alt} />
+            ))}
           </div>
         </div>
       </section>
@@ -249,12 +265,17 @@ interface GalleryImageProps {
 
 function GalleryImage({ src, alt }: GalleryImageProps) {
   return (
-    <div className="relative aspect-square bg-gray-800 overflow-hidden group">
-      <div className="w-full h-full bg-linear-to from-gray-700 to-gray-900 flex items-center justify-center">
-        <div className="text-center text-gray-500 px-4">
-          <p className="text-sm font-medium">Gallery Image</p>
-          <p className="text-xs mt-2">{alt}</p>
-        </div>
+    <div className="relative aspect-square overflow-hidden rounded-2xl border border-gray-800 bg-gray-800 group">
+      <Image
+        src={src}
+        alt={alt}
+        fill
+        sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+        className="object-cover transition-transform duration-700 group-hover:scale-105"
+      />
+      <div className="pointer-events-none absolute inset-0 bg-linear-to-t from-black/80 via-black/0 to-transparent opacity-70 transition-opacity duration-500 group-hover:opacity-90" />
+      <div className="absolute left-0 bottom-0 w-full px-4 pb-4">
+        <p className="text-sm font-semibold text-white drop-shadow-lg">{alt}</p>
       </div>
     </div>
   );
