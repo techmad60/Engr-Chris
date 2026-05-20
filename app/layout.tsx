@@ -9,8 +9,8 @@ const inter = Inter({ subsets: ['latin'], variable: '--font-inter' });
 const bebasNeue = Bebas_Neue({ subsets: ['latin'], weight: '400', variable: '--font-bebas' });
 
 export const metadata: Metadata = {
-  title: 'Smart Art Link Metals | Wrought Iron Fabrication Onitsha',
-  description: 'Expert wrought iron fabrication services in Onitsha. Custom gates, fences, burglary proof installations, staircases, and decorative ironwork.',
+  title: 'Smart Art Link Metals | Wrought Iron Fabrication, CNC & Laser Cutting Onitsha',
+  description: 'Expert wrought iron fabrication, CNC laser cutting, and custom metal services in Onitsha. Precision gates, fences, signage, and architectural metalwork.',
   icons: {
     icon: [
       {

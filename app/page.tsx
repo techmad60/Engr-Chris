@@ -83,7 +83,7 @@ export default function Home() {
             Smart Art Link Metals
           </h1>
           <p className="text-lg sm:text-xl text-white text-balance">
-            Premium Wrought Iron Craftsmanship for Your Home
+            Premium wrought iron craftsmanship, precision CNC, and laser cutting for custom metal work.
           </p>
           <a
             href="https://wa.me/2348068889460?text=Hello%20Smart%20Art%20Link%20Metals%2C%20I%20am%20interested%20in%20your%20services"
@@ -127,6 +127,45 @@ export default function Home() {
               title="Custom Fabrication"
               description="Any custom wrought iron project - we bring your vision to life with precision and artistry."
             />
+            <ServiceCard
+              title="CNC & Laser Cutting"
+              description="High-precision CNC and laser cutting for metal panels, custom components, signage, and architectural details."
+            />
+          </div>
+        </div>
+      </section>
+
+      <section className="py-16 sm:py-24 px-4 sm:px-8 bg-[#111010]">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl sm:text-5xl font-bold text-center mb-12 sm:mb-16">
+            Precision <span className="text-[#d4a574]">CNC & Laser Cutting</span>
+          </h2>
+          <div className="grid lg:grid-cols-2 gap-10 items-center">
+            <div className="space-y-6 text-gray-300">
+              <p className="leading-relaxed text-lg">
+                Our CNC and laser cutting services bring accuracy and speed to every metal fabrication project. We cut steel, stainless steel, aluminum, and other metals with clean edges and consistent results for both decorative and structural applications.
+              </p>
+              <ul className="space-y-3 list-disc list-inside text-gray-400">
+                <li>Custom metal panels, gates, brackets, and architectural accents</li>
+                <li>Precision cutting for signage, components, and fabrication parts</li>
+                <li>Fast turnaround from CAD-ready designs to finished metal pieces</li>
+                <li>Quality control on every piece for fit, finish, and repeatability</li>
+              </ul>
+            </div>
+            <div className="grid gap-4 sm:grid-cols-2">
+              <div className="p-6 bg-gray-900 border border-gray-800">
+                <h3 className="text-xl font-semibold text-[#d4a574] mb-3">Laser Cutting</h3>
+                <p className="text-gray-400 leading-relaxed">
+                  Fine detail cutting for sheet metal, decorative panels, and precision patterns.
+                </p>
+              </div>
+              <div className="p-6 bg-gray-900 border border-gray-800">
+                <h3 className="text-xl font-semibold text-[#d4a574] mb-3">CNC Routing</h3>
+                <p className="text-gray-400 leading-relaxed">
+                  Accurate CNC fabrication for metal components, fixtures, and custom assemblies.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
