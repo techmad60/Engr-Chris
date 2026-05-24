@@ -11,6 +11,20 @@ const bebasNeue = Bebas_Neue({ subsets: ['latin'], weight: '400', variable: '--f
 export const metadata: Metadata = {
   title: 'Smart Art Link Metals | Wrought Iron Fabrication, CNC & Laser Cutting Onitsha',
   description: 'Expert wrought iron fabrication, CNC laser cutting, and custom metal services in Onitsha. Precision gates, fences, signage, and architectural metalwork.',
+  keywords: [
+    'laser cutting',
+    'CNC cutting',
+    'CNC routing',
+    'wrought iron gates',
+    'wrought iron gate designs',
+    'metal fabrication',
+    'custom gates',
+    'architectural metalwork',
+    'metal signage',
+    'Onitsha',
+    'Nigeria'
+  ],
+  verification: { google: 'google28a3dde07e12c4a9' },
   icons: {
     icon: [
       {
