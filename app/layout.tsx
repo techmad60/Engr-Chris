@@ -26,13 +26,8 @@ export const metadata: Metadata = {
   ],
   verification: { google: 'google28a3dde07e12c4a9' },
   icons: {
-    icon: [
-      {
-        url: '/images/logo.png',
-        type: 'image/png',
-      },
-    ],
-    apple: '/images/logo.png',
+    icon: '/favicon.png',
+    apple: '/favicon.png',
   },
 }
 
