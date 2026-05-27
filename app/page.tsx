@@ -204,7 +204,7 @@ export default function Home() {
             <TrustCard
               icon={<Star size={40} className="text-[#d4a574]" />}
               title="Years of Experience"
-              description="Trusted by Port Harcourt residents for premium wrought iron solutions."
+              description="Trusted by Onitsha residents for premium wrought iron solutions."
             />
           </div>
         </div>
