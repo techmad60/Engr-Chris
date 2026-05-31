@@ -33,10 +33,10 @@ export const metadata: Metadata = {
     "Nigeria",
   ],
   verification: { google: "google28a3dde07e12c4a9" },
-  icons: {
-    icon: "/favicon.png",
-    apple: "/favicon.png",
-  },
+ icons: {
+  icon: [{ url: "/favicon.png", type: "image/png", sizes: "96x96" }],
+  apple: "/favicon.png",
+},
 };
 
 export default function RootLayout({
