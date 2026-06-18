@@ -13,30 +13,28 @@ const bebasNeue = Bebas_Neue({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://smartartlinkmetal.vercel.app"),
+  metadataBase: new URL("https://vercel.app"),
   applicationName: "SmartArt Link Metals",
-  title:
-    "SmartArt Link Metals | Wrought Iron Fabrication, CNC & Laser Cutting Onitsha",
+  title: "Wrought Iron Gate Designs & Material Supply Onitsha | Bulk Iron Yard",
   description:
-    "Expert wrought iron fabrication, CNC laser cutting, and custom metal services in Onitsha. Precision gates, fences, signage, and architectural metalwork.",
+    "Buy bulk wrought iron gate components, forged scrolls, spears, and bars direct from our Onitsha yard. Free local pickup and regional waybill to Asaba, Enugu, & Owerri.",
   keywords: [
-    "laser cutting",
-    "CNC cutting",
-    "CNC routing",
-    "wrought iron gates",
     "wrought iron gate designs",
-    "metal fabrication",
-    "custom gates",
-    "architectural metalwork",
-    "metal signage",
-    "Onitsha",
-    "Nigeria",
+    "wrought iron supplier Onitsha",
+    "buy iron gate components near me",
+    "forged iron scrolls wholesale",
+    "gate materials Anambra",
+    "laser cutting Onitsha",
+    "CNC cutting",
+    "metal fabrication supply",
+    "iron gate parts Asaba",
+    "welding materials Enugu"
   ],
   verification: { google: "google28a3dde07e12c4a9" },
- icons: {
-  icon: [{ url: "/favicon.png", type: "image/png", sizes: "96x96" }],
-  apple: { url: "/favicon.png", sizes: "96x96" },
-},
+  icons: {
+    icon: [{ url: "/favicon.png", type: "image/png", sizes: "96x96" }],
+    apple: { url: "/favicon.png", sizes: "96x96" },
+  },
 };
 
 export default function RootLayout({
@@ -44,18 +42,50 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  
+  const localBusinessSchema = {
+    "@context": "https://schema.org",
+    "@type": "WholesaleStore",
+    "name": "SmartArt Link Metals",
+    "url": "https://vercel.app",
+    "image": "https://vercel.app/favicon.png", 
+    "telephone": "+2348068889460",
+    "priceRange": "₦₦₦",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Bridge Head Market Axis",
+      "addressLocality": "Onitsha",
+      "addressRegion": "Anambra State",
+      "addressCountry": "NG"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "6.131847747859472",  
+      "longitude": "6.77148740390141"  
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+      "opens": "08:00",
+      "closes": "18:00"
+    },
+    "areaServed": [
+      { "@type": "AdministrativeArea", "name": "Anambra" },
+      { "@type": "AdministrativeArea", "name": "Delta" },
+      { "@type": "AdministrativeArea", "name": "Enugu" },
+      { "@type": "AdministrativeArea", "name": "Imo" },
+      { "@type": "AdministrativeArea", "name": "Rivers" },
+      { "@type": "AdministrativeArea", "name": "Abia" }
+    ]
+  };
+
   return (
     <html lang="en">
       <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Organization",
-              name: "SmartArt Link Metals",
-              url: "https://smartartlinkmetal.vercel.app",
-            }),
+            __html: JSON.stringify(localBusinessSchema),
           }}
         />
       </head>
